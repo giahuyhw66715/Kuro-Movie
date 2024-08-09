@@ -9,7 +9,7 @@ const HomePage = () => {
     return (
         <div>
             <HomeBanner></HomeBanner>
-            <div className="container my-20 px-5">
+            <div className="container my-20 px-5 max-w-full">
                 <HomeMovieSlider
                     title="Popular Movies"
                     type="popular"

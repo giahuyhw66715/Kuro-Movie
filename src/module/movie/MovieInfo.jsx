@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import Heading from "../../components/common/Heading";
 import { StarIcon } from "@heroicons/react/16/solid";
 import { Typography } from "@material-tailwind/react";
 import MovieGenreButton from "./MovieGenreButton";
@@ -11,10 +10,10 @@ const MovieInfo = ({ movie }) => {
 
     return (
         <div className="mt-10 flex flex-col gap-y-3 my-5">
-            <Heading className="mb-0 text-white">
+            <Typography variant="h3" color="white" data-aos="fade-up">
                 {movie?.title || movie?.name}
-            </Heading>
-            <div className="flex items-center gap-x-3">
+            </Typography>
+            <div className="flex items-center gap-x-3" data-aos="fade-up">
                 <div className="flex items-center gap-x-2">
                     <StarIcon className="w-4 h-4 text-yellow-400"></StarIcon>
                     <Typography className="text-base font-bold text-yellow-400">
@@ -29,7 +28,7 @@ const MovieInfo = ({ movie }) => {
                     {releaseDate?.split("-")[0]}
                 </Typography>
             </div>
-            <div className="flex items-center gap-x-2">
+            <div className="flex items-center gap-x-2" data-aos="fade-up">
                 {movie?.genres?.length > 0 &&
                     movie?.genres?.map((genre) => (
                         <MovieGenreButton key={genre?.id}>
@@ -38,7 +37,9 @@ const MovieInfo = ({ movie }) => {
                     ))}
             </div>
             <MovieCredit></MovieCredit>
-            <Typography className="mt-2">{movie?.overview}</Typography>
+            <Typography className="mt-2" data-aos="fade-up">
+                {movie?.overview}
+            </Typography>
         </div>
     );
 };

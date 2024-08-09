@@ -13,7 +13,7 @@ const MovieCredit = () => {
     if (!data || data?.cast?.length === 0) return;
 
     return (
-        <div className="flex items-center gap-x-10 my-5">
+        <div className="flex items-center gap-x-10 my-5" data-aos="fade-up">
             {data?.cast?.slice(0, 4).map((cast) => (
                 <div
                     className="flex items-center flex-col gap-y-3"

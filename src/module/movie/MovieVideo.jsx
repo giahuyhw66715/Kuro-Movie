@@ -19,7 +19,7 @@ const MovieVideo = () => {
     const videoDetail = data?.results[0];
 
     return (
-        <div className="w-">
+        <div className="w-full" data-aos="zoom-out">
             <iframe
                 width={"100%"}
                 height="750"

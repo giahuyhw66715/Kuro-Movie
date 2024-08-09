@@ -52,7 +52,7 @@ export function MovieFilter({ button }) {
                 <DialogBody>
                     <form
                         onSubmit={handleSubmit(handleFilter)}
-                        className="flex flex-col gap-5"
+                        className="flex flex-col"
                     >
                         <div>
                             <Typography className="text-base font-bold mb-3">
@@ -76,7 +76,7 @@ export function MovieFilter({ button }) {
                             <Typography className="text-base font-bold mb-3">
                                 Series Genre:
                             </Typography>
-                            <div className="grid grid-cols-3 lg:grid-cols-4 gap-5">
+                            <div className="grid grid-cols-3 lg:grid-cols-4">
                                 {seriesGenres?.genres?.map((genre) => (
                                     <Checkbox
                                         key={genre?.id}

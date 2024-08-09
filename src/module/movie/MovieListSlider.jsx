@@ -3,9 +3,13 @@ import useSWR from "swr";
 import { fetcher, tmdbAPI } from "../../utils/config";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { MovieItem } from "./MovieItem";
+import { MovieItemSkeleton } from "../../components/loading/MovieItemSkeleton";
 
 const MovieListSlider = ({ item, type = "popular" }) => {
-    const { data, error } = useSWR(tmdbAPI.getMovieList(type, item), fetcher);
+    const { data, isLoading, error } = useSWR(
+        tmdbAPI.getMovieList(type, item),
+        fetcher
+    );
     if (error) return;
 
     const movies = data?.results || [];
@@ -23,8 +27,16 @@ const MovieListSlider = ({ item, type = "popular" }) => {
         >
             {movies.length > 0 &&
                 movies.map((movie) => (
-                    <SwiperSlide key={movie.id} className="h-auto">
-                        <MovieItem movie={movie} slider></MovieItem>
+                    <SwiperSlide
+                        key={movie.id}
+                        className="h-auto"
+                        data-aos="fade-up"
+                    >
+                        {isLoading ? (
+                            <MovieItemSkeleton slider></MovieItemSkeleton>
+                        ) : (
+                            <MovieItem movie={movie} slider></MovieItem>
+                        )}
                     </SwiperSlide>
                 ))}
         </Swiper>

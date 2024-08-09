@@ -10,7 +10,7 @@
 }
 
 .container {
-    @apply max-w-[1710px] mx-auto;
+    @apply mx-auto;
 }
 
 .overflow-text {

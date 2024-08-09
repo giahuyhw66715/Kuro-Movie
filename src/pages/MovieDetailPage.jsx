@@ -13,6 +13,8 @@ import {
 } from "@material-tailwind/react";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { useEffect } from "react";
+import Heading from "../components/common/Heading";
+import ReviewCardList from "../module/review/ReviewCardList";
 
 const MovieDetailPage = () => {
     const { id, type } = useParams();
@@ -37,7 +39,7 @@ const MovieDetailPage = () => {
         <div className="container my-20">
             <MovieVideo></MovieVideo>
             {type === "tv" && data?.seasons && data?.seasons.length > 0 && (
-                <div className="my-10">
+                <div className="my-10" data-aos="fade-up">
                     <Menu>
                         <MenuHandler>
                             <Button
@@ -65,7 +67,10 @@ const MovieDetailPage = () => {
                             ))}
                         </MenuList>
                     </Menu>
-                    <div className="grid grid-cols-10 gap-3 mt-8">
+                    <div
+                        className="grid grid-cols-10 gap-3 mt-8"
+                        data-aos="fade-up"
+                    >
                         {Array.from(
                             { length: numEpisodes },
                             (_, i) => i + 1
@@ -90,6 +95,12 @@ const MovieDetailPage = () => {
                 </div>
             )}
             <MovieInfo movie={data}></MovieInfo>
+            <div className="mt-10">
+                <Heading verticalLine className="mb-5">
+                    Review
+                </Heading>
+                <ReviewCardList type={type} movieId={id}></ReviewCardList>
+            </div>
             <div className="mt-10">
                 <MovieSimilar></MovieSimilar>
             </div>

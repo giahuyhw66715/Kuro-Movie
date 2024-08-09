@@ -10,16 +10,12 @@ export function Pagination({ totalPages, page, setPage }) {
         setPage(page + 1);
         const updateQuery = { page: page + 1 };
         if (searchParams.get("movieGenres")) {
-            setSearchParams({
-                ...updateQuery,
-                movieGenres: searchParams.get("movieGenres"),
-            });
+            updateQuery["movieGenres"] = searchParams.get("movieGenres");
         } else if (searchParams.get("seriesGenres")) {
-            setSearchParams({
-                ...updateQuery,
-                seriesGenres: searchParams.get("seriesGenres"),
-            });
+            updateQuery["seriesGenres"] = searchParams.get("seriesGenres");
         }
+
+        setSearchParams(updateQuery);
     };
 
     const prev = () => {

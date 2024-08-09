@@ -38,7 +38,7 @@ const MoviePage = () => {
                   type,
                   page,
               });
-    const { data, error } = useSWR(movieRequestUrl, fetcher);
+    const { data, isLoading, error } = useSWR(movieRequestUrl, fetcher);
 
     if (error) return;
 
@@ -59,7 +59,7 @@ const MoviePage = () => {
                     }
                 ></MovieFilter>
             </div>
-            <MovieList movies={movies}></MovieList>
+            <MovieList isLoading={isLoading} movies={movies}></MovieList>
             <div className="flex itenms-center justify-center mt-5">
                 <Pagination
                     totalPages={data?.total_pages || 0}

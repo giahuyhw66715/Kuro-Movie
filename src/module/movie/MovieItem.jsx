@@ -37,8 +37,8 @@ export function MovieItem({ movie, slider = false }) {
                         )}
                         alt={movie?.title}
                         className={`w-full ${
-                            slider ? "lg:h-full" : "h-[400px] xl:h-[500px]"
-                        } object-cover`}
+                            slider ? "lg:h-full" : "lg:h-[350px]"
+                        } object-cover hover:scale-105 duration-300 transition-all`}
                     />
                 </NavLink>
             </CardHeader>

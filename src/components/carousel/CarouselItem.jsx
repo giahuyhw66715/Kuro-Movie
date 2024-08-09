@@ -10,14 +10,15 @@ const CarouselItem = ({ movie }) => {
             <img
                 src={tmdbAPI.imageOriginal(movie.poster_path)}
                 alt={movie.title}
-                className="h-[400px] lg:h-full w-full max-h-[800px] object-cover"
+                className="h-[400px] lg:h-full w-full max-h-[650px] object-cover"
             />
             <div className="absolute inset-0 grid h-[400px] lg:h-full w-full items-center lg:items-end bg-black/75 pl-14 pt-10 lg:pl-0 lg:pt-0">
                 <div className="w-full lg:w-3/4 pl-12 pb-12 md:w-2/4 md:pl-20 md:pb-20 lg:pl-32 lg:pb-32">
                     <Typography
                         variant="h1"
                         color="white"
-                        className="mb-3 text-3xl md:text-4xl lg:text-5xl"
+                        className="mb-5 text-3xl md:text-4xl lg:text-5xl"
+                        data-aos="fade-up"
                     >
                         {movie.title}
                     </Typography>
@@ -39,13 +40,18 @@ const CarouselItem = ({ movie }) => {
                     <Typography
                         variant="lead"
                         color="white"
-                        className="mb-12 opacity-80 hidden lg:block"
+                        className="mb-5 opacity-80 hidden lg:block"
+                        data-aos="fade-left"
                     >
                         {movie.overview}
                     </Typography>
                     <div className="flex gap-2">
                         <NavLink to={`/movie/${movie?.id}/${movie?.title}`}>
-                            <Button size="lg" color="white">
+                            <Button
+                                size="lg"
+                                color="white"
+                                data-aos="fade-down"
+                            >
                                 Watch Now
                             </Button>
                         </NavLink>

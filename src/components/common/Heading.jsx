@@ -13,6 +13,7 @@ const Heading = ({
             className={`text-orange ${className} ${
                 verticalLine ? "border-l-4 border-orange pl-4" : ""
             }`}
+            data-aos="fade-up"
         >
             {children}
         </Typography>

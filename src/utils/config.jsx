@@ -16,6 +16,8 @@ export const tmdbAPI = {
         `${tmdbEndpoint}/search/multi?query=${query}&page=${page}&api_key=${apiKey}`,
     getCountries: () =>
         `${tmdbEndpoint}/configuration/countries?api_key=${apiKey}`,
+    getMovieReviews: (type, movieId) =>
+        `${tmdbEndpoint}/${type}/${movieId}/reviews?api_key=${apiKey}`,
     imageOriginal: (url) => `https://image.tmdb.org/t/p/original${url}`,
     getMovieGenres: () => `${tmdbEndpoint}/genre/movie/list?api_key=${apiKey}`,
     getSeriesGenres: () => `${tmdbEndpoint}/genre/tv/list?api_key=${apiKey}`,
